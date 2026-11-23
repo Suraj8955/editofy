@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Editofy - You Shoot, We Make You Viral</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Inter',sans-serif}
+body{background:#fff;color:#111}
+.header{max-width:1100px;margin:0 auto;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;background:#fff;position:sticky;top:0;z-index:100;border-bottom:1px solid #E5E7EB}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:22px}
+.logo-icon{width:40px;height:40px;background:#FC6222;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900}
+.badge{margin:24px auto 0;max-width:fit-content;background:#FFF4EF;border:1px solid #FFD6C0;border-radius:99px;padding:8px 16px;text-align:center;font-size:12px;font-weight:600}
+.badge b{color:#FC6222}
+.hero{max-width:720px;margin:0 auto;padding:50px 20px 30px;text-align:center}
+.hero h1{font-size:64px;font-weight:900;line-height:.95;letter-spacing:-3px}
+.hero h1 span{color:#FC6222}
+.hero p{margin:18px auto 0;max-width:520px;font-size:18px;line-height:1.6;color:#6B7280}
+.btns{margin-top:32px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{padding:16px 28px;border-radius:99px;border:1px solid #111;font-weight:700;font-size:15px;cursor:pointer}
+.btn-dark{background:#111;color:#fff}
+.stats{margin:40px auto 0;display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;max-width:480px;text-align:center;border-top:1px solid #F3F4F6;padding-top:28px}
+.stats b{font-size:28px;display:block}
+.stats span{font-size:12px;color:#6B7280}
+.social-logos{display:flex;gap:12px;justify-content:center;align-items:center;margin-top:20px;flex-wrap:wrap}
+.social-logos a{width:44px;height:44px;border-radius:12px;border:1px solid #E5E7EB;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:20px;background:#fff}
+.yt{background:#FF0000 !important;color:#fff !important;border-color:#FF0000 !important}
+.ig{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888) !important;color:#fff !important;border:0 !important}
+.fb{background:#1877F2 !important;color:#fff !important;border-color:#1877F2 !important}
+.tw{background:#000 !important;color:#fff !important;border-color:#000 !important}
+.section{max-width:1100px;margin:24px auto;padding:20px}
+.card{border:1px solid #E5E7EB;border-radius:24px;padding:24px;margin:16px 0;background:#fff}
+.card-orange{border:1px solid #FC6222;background:#FFFBF8}
+.card-dark{background:#111;color:#fff}
+.pricing{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:20px}
+@media(max-width:700px){.pricing{grid-template-columns:1fr}.hero h1{font-size:40px}}
+.price{border:1px solid #E5E7EB;border-radius:20px;padding:20px;background:#fff;display:flex;flex-direction:column}
+.price .rs{font-size:32px;font-weight:900;color:#FC6222;margin:8px 0;text-align:center}
+.price.popular{background:#111;color:#fff;transform:scale(1.03)}
+.price ul{list-style:none;margin-top:10px;flex:1}
+.price ul li{font-size:12.5px;padding:4px 0;border-bottom:1px solid #F3F4F6}
+.buy-btn{margin-top:14px;width:100%;padding:12px;background:#FC6222;color:#fff;border:0;border-radius:99px;font-weight:800;font-size:13px}
+.ba-title{text-align:center}
+.ba-title h2{font-size:32px;font-weight:900}
+.ba-title h2 span{color:#FC6222}
+.ba-grid{display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap}
+.ba-box{width:300px;aspect-ratio:9/16;border-radius:24px;overflow:hidden;background:#111;position:relative;border:1px solid #E5E7EB;cursor:pointer}
+.ba-box video{width:100%;height:100%;object-fit:cover}
+.ba-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.9) 0%,rgba(0,0,0,0.2) 45%,transparent 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:14px;pointer-events:none}
+.ba-tag{display:inline-block;padding:6px 12px;border-radius:99px;font-size:11px;font-weight:800;width:fit-content;margin-bottom:8px}
+.ba-tag.before{background:#fff;color:#111}
+.ba-tag.after{background:#FC6222;color:#fff}
+.ba-text{color:#fff;font-weight:800;font-size:17px}
+.ba-plus{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:52px;height:52px;background:rgba(255,255,255,0.92);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px}
+.cta-pro{background:linear-gradient(135deg,#111 0%,#1C150F 100%);border:2px solid #FC6222;border-radius:24px;padding:32px 20px;text-align:center;margin:24px 0}
+#menuToggle{display:none}
+.menuBtn{font-size:26px;cursor:pointer;padding:8px 14px;border:1px solid #E5E7EB;border-radius:12px;background:#fff;display:inline-block}
+#navDrawer{position:fixed;top:0;right:-340px;width:340px;max-width:85vw;height:100vh;background:#fff;z-index:10000;padding:20px;transition:right 0.3s ease;overflow-y:auto;box-shadow:-10px 0 30px rgba(0,0,0,0.2);display:flex;flex-direction:column}
+#overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:9999;display:none}
+#menuToggle:checked ~ #navDrawer{right:0}
+#menuToggle:checked ~ #overlay{display:block}
+.closeBtn{width:36px;height:36px;background:#F3F4F6;border-radius:10px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.footer-simple{background:#FAFAFA;border-top:1px solid #E5E7EB;padding:40px 20px 20px;margin-top:40px}
+.footer-simple-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px}
+@media(max-width:800px){.footer-simple-inner{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}}
+.footer-simple h4{font-size:13px;font-weight:800;margin-bottom:16px}
+.footer-simple a{color:#6B7280;font-size:13.5px;text-decoration:none;display:block;padding:5px 0}
+.footer-simple a:hover{color:#FC6222}
+.footer-simple-bottom{max-width:1100px;margin:32px auto 0;border-top:1px solid #E5E7EB;padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-social{display:flex;gap:10px}
+.footer-social a{width:36px;height:36px;border-radius:10px;border:1px solid #E5E7EB;display:flex;align-items:center;justify-content:center;background:#fff;font-size:16px}
+.footer-pay{display:inline-block;margin-top:12px;background:#111;color:#fff;font-size:11.5px;padding:6px 14px;border-radius:99px}
+.refer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:14px}
+@media(max-width:700px){.refer-grid{grid-template-columns:1fr}}
+.refer-table{border:1px solid #262626;background:#161616;border-radius:12px;padding:12px}
+.refer-table h4{color:#FC6222;font-size:11px;text-align:center;margin-bottom:8px;font-weight:800}
+.refer-table table{width:100%;border-collapse:collapse;font-size:11.5px}
+.refer-table td{padding:6px 2px;border-bottom:1px solid #222;color:#9CA3AF}
+.refer-table td:last-child{font-weight:800;color:#fff;text-align:right}
+</style>
+</head>
+<body>
+<input type="checkbox" id="menuToggle">
+<div class="header"><div class="logo"><div class="logo-icon">✎</div> Editofy</div><label for="menuToggle" class="menuBtn">☰</label></div>
+<label for="menuToggle" id="overlay"></label>
+<div id="navDrawer">
+<div>
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px"><div style="display:flex;align-items:center;gap:8px;font-weight:900;font-size:18px"><div class="logo-icon" style="width:32px;height:32px;font-size:14px">✎</div> Editofy</div><label for="menuToggle" class="closeBtn">✕</label></div>
+<div style="background:#F9FAFB;border:1px solid #E5E7EB;border-radius:12px;padding:12px;margin-bottom:12px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><span style="font-size:13px;font-weight:800">🌐 Language</span><select onchange="window.location.href='language.html'" style="border:1px solid #E5E7EB;border-radius:8px;padding:6px 10px;font-size:12px;font-weight:700;cursor:pointer"><option>English</option><option>Hinglish</option></select></div><div onclick="window.location.href='setting.html'" style="display:flex;justify-content:space-between;align-items:center;cursor:pointer"><span style="font-size:13px;font-weight:800">⚙️ Setting ›</span><span style="font-size:11px;color:#6B7280">App v1.0</span></div></div>
+<a href="#Index.html" onclick="document.getElementById('menuToggle').checked=false" style="display:block;padding:14px 0;border-bottom:1px solid #F3F4F6;text-decoration:none;color:#111;font-weight:800">🏠 Home</a>
+<a href="#features" onclick="document.getElementById('menuToggle').checked=false" style="display:block;padding:14px 0;border-bottom:1px solid #F3F4F6;text-decoration:none;color:#111">✨ All-in-One Viral Studio</a>
+<a href="How it works.html" onclick="document.getElementById('menuToggle').checked=false" style="display:block;padding:14px 0;border-bottom:1px solid #F3F4F6;text-decoration:none;color:#111">🎬 How It Works</a>
+<a href="Pricing.html" onclick="document.getElementById('menuToggle').checked=false" style="display:block;padding:14px 0;border-bottom:1px solid #F3F4F6;text-decoration:none;color:#111">💰 Pricing</a>
+<a href="Support.html" onclick="document.getElementById('menuToggle').checked=false" style="display:block;padding:14px 0;border-bottom:1px solid #F3F4F6;text-decoration:none;color:#111">❓ Support</a>
+<a href="Refer.html" onclick="document.getElementById('menuToggle').checked=false" style="display:block;padding:14px 0;text-decoration:none;color:#FC6222;font-weight:800">🔥 Refer & Earn</a>
+</div>
+<div style="margin-top:auto;padding-top:20px;border-top:2px solid #F3F4F6"><p style="font-size:11px;font-weight:800;color:#9CA3AF;margin-bottom:12px">ACCOUNT</p><button onclick="window.location.href='Loging.html'" style="width:100%;padding:14px;background:#111;color:#fff;border:0;border-radius:99px;font-weight:800;margin-bottom:10px;cursor:pointer">👤 Login</button><button onclick="window.location.href='signup.html'" style="width:100%;padding:14px;background:#FC6222;color:#fff;border:0;border-radius:99px;font-weight:800;cursor:pointer">✨ Sign Up - Free</button></div>
+</div>
+
+<div id="home" style="text-align:center"><div class="badge">✨ ALL-IN-ONE VIRAL STUDIO — <b>Made for India</b></div></div>
+<div class="hero"><h1>You Shoot,<br><span>We Make You Viral</span></h1><p>Transform your raw clips into viral-ready videos with AI. Auto captions, cuts, hooks & trending music — export in minutes.</p><div class="btns"><button class="btn btn-dark" onclick="window.location.href='Free.html'" style="background:#FC6222;border-color:#FC6222">Start Free — Rs 0 →</button><button class="btn btn-light">▶ Watch Demo</button></div><div class="stats"><div><b>2M+</b><span>Videos Created</span></div><div><b>50K+</b><span>Creators</span></div><div><b>4.9/5</b><span>Rating</span></div></div><div class="social-logos"><a href="#" class="yt">▶</a><a href="#" class="ig">◎</a><a href="#" class="fb">f</a><a href="#" class="tw">𝕏</a></div><p style="font-size:11px;color:#9CA3AF;margin-top:8px">Trusted by creators on YouTube • Instagram • Facebook • Twitter</p></div>
+
+< class="section">
+<div id="features" class="card card-orange" style="text-align:center;line-height:1.7"><b style="font-size:18px;display:block">ALL-IN-ONE VIRAL STUDIO 🚀</b><div style="margin-top:8px;font-weight:700;font-size:15px">12+ Tools = 1 Click Me</div><div style="margin-top:6px;font-size:14px;color:#4B5563">Color, Audio, Cuts, Zoom, Captions, Hooks, Music, Thumbnail</div><div style="margin-top:6px;font-size:13px;font-weight:800;color:#FC6222">4K - No Watermark - Everything Unlocked</div></div>
+
+<div id="how" class="card" style="border:1px solid #111"><div class="ba-title"><h2>HOW IT WORKS — <span>BEFORE vs AFTER</span></h2><p>Same clip. Different result.</p></div><div class="ba-grid"><div class="ba-box" onclick="document.getElementById('beforeInput').click()"><video id="beforeVideo" muted loop playsinline></video><div class="ba-plus">+</div><div class="ba-overlay"><div class="ba-tag before">BEFORE</div><div class="ba-text">Raw, Shaky & Silent</div></div><input type="file" id="beforeInput" accept="video/*" hidden></div><div class="ba-box" style="border:2px solid #FC6222" onclick="document.getElementById('afterInput').click()"><video id="afterVideo" muted loop playsinline></video><div class="ba-plus" style="background:#FC6222;color:#fff">+</div><div class="ba-overlay"><div class="ba-tag after">AFTER • VIRAL</div><div class="ba-text">Hook in 3 Sec + All-in-One Studio</div></div><input type="file" id="afterInput" accept="video/*" hidden></div></div></div>
+
+<div id="pricing" class="pricing"><div class="price"><h3 style="text-align:center">MINI VLOG</h3><div class="rs">₹39</div><ul><li>🎬 Upto 3 Min Raw Video</li><li>🔥 1 Premium Edit - Caption + Hook + Music</li><li>✍️🎙️ Edit By Writing Or Speaking - Anything</li><li>✨ Clean Audio + Cinematic Color + Cut Boring Part</li><li>⚡ Ready In Just 2 Min - Download & Post</li></ul><button class="buy-btn" onclick="window.location.href='order.html?price=39&plan=MINI VLOG'">Buy @ ₹39</button></div><div class="price popular"><h3 style="text-align:center">VLOG ₹49</h3><div class="rs">₹49</div><ul><li>🎥 Upto 20 Min Full Vlog</li><li>✨ Premium Edits - In Different Styles</li><li>✍️🎙️ Edit By Writing Or Speaking - Anything</li><li>🔥 Clean Audio + Hindi Caption + RUKO Hook + Music</li><li>🚀 Delivery In 3 Min - Go Viral Today</li></ul><button class="buy-btn" onclick="window.location.href='Vlog.html?price=49&plan=VLOG'">Buy @ ₹49 — POPULAR 🔥</button></div><div class="price"><h3 style="text-align:center">VLOG TO VIRAL</h3><div class="rs">₹59</div><ul><li>🎞️ Upto 1.5 Hour Big Vlog</li><li>💥 5 Premium Edits - 5 Viral Reels From 1 Vlog</li><li>✍️🎙️ Edit By Writing Or Speaking - Anything</li><li>🎯 Every Reel With Different Hook + Caption + Music</li><li>⏰ Every Reel In 3 Min - 1 Vlog = 1 Week Content</li></ul><button class="buy-btn">Buy @ ₹59</button></div></div>
+
+<div class="card"><h2 style="font-size:22px;font-weight:900;text-align:center">SUPPORT — <span style="color:#FC6222">All Doubts Cleared</span></h2><details style="border:1px solid #E5E7EB;border-radius:14px;padding:14px;background:#FFFBF8;margin-top:12px" open><summary style="font-weight:800;font-size:13px">Q1: Difference between ₹39, ₹49, ₹59?</summary><p style="font-size:12.5px;color:#4B5563;margin-top:8px">MINI ₹39 = 3 min raw, 1 edit. VLOG ₹49 = 20 min raw, 2 edits. VIRAL ₹59 = 5 reels.</p></details><details style="border:1px solid #E5E7EB;border-radius:14px;padding:14px;margin-top:8px"><summary style="font-weight:700;font-size:13px">Q2: How fast?</summary><p style="font-size:12.5px;color:#4B5563;margin-top:8px">2-3 mins delivery.</p></details><details style="border:1px solid #FC6222;border-radius:14px;padding:14px;background:#111;color:#fff;margin-top:8px"><summary style="font-weight:800;font-size:13px">Q3: Can I withdraw ₹8.58?</summary><p style="font-size:12.5px;color:#E5E7EB;margin-top:8px"><b style="color:#22C55E">Yes! NO MINIMUM.</b> Instant UPI.</p></details><details style="border:1px solid #E5E7EB;border-radius:14px;padding:14px;margin-top:8px"><summary style="font-weight:700;font-size:13px">Q4: How much earn?</summary><p style="font-size:12.5px;color:#4B5563;margin-top:8px">100 friends daily → ₹32,340/month.</p></details><details style="border:1px solid #E5E7EB;border-radius:14px;padding:14px;margin-top:8px"><summary style="font-weight:700;font-size:13px">Q5: Payment safe?</summary><p style="font-size:12.5px;color:#4B5563;margin-top:8px">100% safe — UPI, GPay, PhonePe.</p></details></div>
+
+<div id="refer" class="card card-dark" style="padding:16px"><div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px"><b style="font-size:14px">REFER & EARN — 22% Lifetime 🔥</b><div style="display:flex;gap:6px;align-items:center;background:#161616;border:1px solid #2A2A2A;border-radius:99px;padding:4px 6px"><span>🔗</span><input id="refLink" readonly value="https://editofy.com/?ref=USER" style="width:130px;background:transparent;border:0;color:#fff;font-size:11px"><button onclick="navigator.clipboard.writeText(document.getElementById('refLink').value);alert('Copied!')" style="background:#FC6222;color:#fff;border:0;padding:5px 10px;border-radius:99px;font-size:10px;font-weight:700">Copy</button></div></div><div style="margin-top:12px;background:#161616;border:1px solid #222;border-radius:12px;padding:12px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px"><div style="font-size:12px;color:#9CA3AF">1 Friend = <b style="color:#fff">₹8.58 - ₹12.98</b> • 100 Friends = <b style="color:#22C55E">₹32k+/month</b></div><button onclick="document.getElementById('referFull').style.display='block';this.parentElement.style.display='none'" style="background:#FC6222;color:#fff;border:0;padding:6px 14px;border-radius:99px;font-size:11px;font-weight:800;cursor:pointer">More Details ▼</button></div><div id="referFull" style="display:none;margin-top:12px"><div class="refer-grid"><div class="refer-table"><h4>₹39 MINI</h4><table><tr><td>1 Friend (Day)</td><td>₹8.58</td></tr><tr><td>100 Friends (Day)</td><td>₹858</td></tr><tr><td>Month (30 Days)</td><td style="color:#22C55E">₹25,740</td></tr><tr><td>Year</td><td style="color:#FC6222">₹3,08,880</td></tr></table></div><div class="refer-table" style="border-color:#FC6222"><h4>₹49 POPULAR</h4><table><tr><td>1 Friend (Day)</td><td>₹10.78</td></tr><tr><td>100 Friends (Day)</td><td>₹1,078</td></tr><tr><td>Month (30 Days)</td><td style="color:#22C55E">₹32,340</td></tr><tr><td>Year</td><td style="color:#FC6222">₹3,88,080</td></tr></table></div><div class="refer-table"><h4>₹59 VIRAL</h4><table><tr><td>1 Friend (Day)</td><td>₹12.98</td></tr><tr><td>100 Friends (Day)</td><td>₹1,298</td></tr><tr><td>Month (30 Days)</td><td style="color:#22C55E">₹38,940</td></tr><tr><td>Year</td><td style="color:#FC6222">₹4,67,280</td></tr></table></div></div></div></div>
+
+<div class="cta-pro"><h2 style="font-size:32px;font-weight:900;color:#fff;line-height:1.1">Start Now —<br><span style="color:#FC6222">Viral Ready in 2 Minutes? 🚀</span></h2><p style="color:#9CA3AF;font-size:14px;margin:12px auto 0;max-width:520px">50,000+ creators are going viral every day. Hinglish / English / Hindi - All Supported!</p><div style="margin-top:20px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap"><button class="btn btn-dark" onclick="window.location.href='Free.html'" style="background:#FC6222;border-color:#FC6222">Start Free — Rs 0 →</button><button class="btn" style="background:#fff;color:#111">▶ Watch Demo</button></div></div>
+</div>
+<div class="footer-simple"><div class="footer-simple-inner"><div class="footer-brand"><div style="display:flex;align-items:center;gap:8px"><div class="logo-icon" style="width:32px;height:32px;font-size:14px">✎</div><b style="font-size:20px">Editofy</b></div><p style="margin-top:12px;font-size:13.5px;color:#6B7280;line-height:1.6">You Shoot, We Make You Viral.<br>Professional video editing for creators.</p><p style="margin-top:8px;font-size:13px">📧 support@editofy.com<br>📱 WhatsApp: 98765 43210<br>⏰ Mon - Sat, 10AM - 8PM</p><span class="footer-pay">✅ UPI • GPay • PhonePe • Paytm</span></div><div><h4>QUICK LINKS</h4><a href="index.html">Home</a><a href="#pricing">Pricing</a><a href="#how">Portfolio / Our Work</a><a href="setting.html">Settings</a><a href="setting.html">Contact Us</a></div><div><h4>SERVICES</h4><a href="#pricing">Reels Editing</a><a href="#pricing">YouTube Editing</a><a href="#pricing">Shorts Editing</a><a href="#pricing">Vlog Editing</a></div><div><h4>SUPPORT</h4><a href="setting.html">Help Center</a><a href="setting.html">Privacy Policy</a><a href="setting.html">Terms & Conditions</a><a href="setting.html">Refund Policy</a></div></div><div class="footer-simple-bottom"><span style="font-size:12.5px;color:#6B7280">© 2026 Editofy • All Rights Reserved • Made in India 🇮🇳</span><div class="footer-social"><a href="#">📸</a><a href="#">▶️</a><a href="#">💬</a><a href="#">✈️</a></div>
